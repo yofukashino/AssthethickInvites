@@ -1,0 +1,22 @@
+{
+    "id":  "dev.tharki.AssthethickInvites",
+    "name":  "AssthethickInvites",
+    "description":  "trying to make invites look better because my life doesn\u0027t look good",
+    "author":  {
+                   "discordID":  "1121961711080050780",
+                   "name":  "Ahlawat",
+                   "github":  "TharkiDev"
+               },
+    "version":  "1.0.0",
+    "updater":  {
+                    "id":  "TharkiDev/AssthethickInvites",
+                    "type":  "github"
+                },
+    "license":  "MIT",
+    "type":  "replugged-plugin",
+    "renderer":  "src/index.ts",
+    "source":  "https://github.com/TharkiDev/AssthethickInvites",
+    "image":  [
+                  "https://i.imgur.com/14CNs3a.png?CHANGE-THIS-URL"
+              ]
+}
