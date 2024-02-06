@@ -1,14 +1,14 @@
-### GenericName
+### AssthethickInvites
 
 [INSERT DESCRIPTION HERE]
 
-Direct Download Link: [dev.tharki.GenericName.asar](https://github.com/TharkiDev/GenericName/releases/latest/download/dev.tharki.GenericName.asar)
+Direct Download Link: [dev.tharki.AssthethickInvites.asar](https://github.com/Yofukashi-No/AssthethickInvites/releases/latest/download/dev.tharki.AssthethickInvites.asar)
 
 Install Link:
 
-[![Install in Replugged](https://img.shields.io/badge/-Install%20in%20Replugged-blue?style=for-the-badge&logo=none)](https://replugged.dev/install?identifier=TharkiDev/GenericName&source=github)
+[![Install in Replugged](https://img.shields.io/badge/-Install%20in%20Replugged-blue?style=for-the-badge&logo=none)](https://replugged.dev/install?identifier=Yofukashi-No/AssthethickInvites&source=github)
 
-![GenericName](https://i.imgur.com/hLCUDCO.gif)
+![AssthethickInvites](https://i.imgur.com/hLCUDCO.gif)
 
 > ## Disclaimer
 >
