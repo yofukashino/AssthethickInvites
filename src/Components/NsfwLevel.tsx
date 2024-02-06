@@ -4,12 +4,7 @@ import consts from "../lib/consts";
 import Types from "../types";
 
 export default ({ Guild }: { Guild: Types.Guild }): React.ReactElement => {
-  if (
-    !SettingValues.get("nsfw", consts.defaultSettings.nsfw) ||
-    !Guild?.nsfwLevel ||
-    Guild?.nsfwLevel <= 0
-  )
-    return null;
+  if (!SettingValues.get("nsfw", consts.defaultSettings.nsfw) || !Guild?.nsfwLevel) return null;
   return (
     <Tooltip text={`Level ${Guild?.nsfwLevel} NSFW`}>
       <img

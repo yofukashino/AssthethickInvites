@@ -9,6 +9,41 @@ export namespace Types {
   export type UserProfile = React.MemoExoticComponent<
     React.ComponentType<{ userId: string; channelId?: string; guildId?: string }>
   >;
+  export interface BoostUtils {
+    PerkIcons: DefaultTypes.AnyFunction;
+    appliedGuildBoostsRequiredForPerks: DefaultTypes.AnyFunction;
+    boostedGuildTierToAnalyticsObjectType: DefaultTypes.AnyFunction;
+    generateBlockGuildSubscriptionPurchasesNode: DefaultTypes.AnyFunction;
+    getAppliedGuildBoostsRequired: DefaultTypes.AnyFunction;
+    getAvailableGuildBoostSlots: DefaultTypes.AnyFunction;
+    getAvailableSoundboardSoundCount: DefaultTypes.AnyFunction;
+    getAvailableStickerSlotCount: DefaultTypes.AnyFunction;
+    getGracePeriodEndingDate: DefaultTypes.AnyFunction;
+    getGuildTierFromAppliedBoostCount: DefaultTypes.AnyFunction;
+    getIncrementalSoundboardSoundCountForTier: DefaultTypes.AnyFunction;
+    getIncrementalStickerCountForTier: DefaultTypes.AnyFunction;
+    getNextTier: DefaultTypes.AnyFunction;
+    getNumberOfAppliedBoostsNeededForTier: DefaultTypes.AnyFunction;
+    getShortenedTierName: DefaultTypes.AnyFunction;
+    getTierName: DefaultTypes.AnyFunction;
+    getTiers: DefaultTypes.AnyFunction;
+    getTotalSoundboardSoundCountForTier: DefaultTypes.AnyFunction;
+    getTotalStickerCountForTier: DefaultTypes.AnyFunction;
+    isGuildBoostSlotCanceled: DefaultTypes.AnyFunction;
+    isGuildBoostedAtLeast: DefaultTypes.AnyFunction;
+    isInGracePeriod: DefaultTypes.AnyFunction;
+    isTierUnlocked: DefaultTypes.AnyFunction;
+    minimumRequiredTierForGuildFeature: DefaultTypes.AnyFunction;
+  }
+  export interface GuildConstructors {
+    filterRoleDeletes: DefaultTypes.AnyFunction;
+    fromBackgroundSync: DefaultTypes.AnyFunction;
+    fromInviteGuild: DefaultTypes.AnyFunction;
+    fromSerializedGuildRecord: DefaultTypes.AnyFunction;
+    fromServer: DefaultTypes.AnyFunction;
+    fromServerUpdate: DefaultTypes.AnyFunction;
+    toServer: DefaultTypes.AnyFunction;
+  }
   export interface Invite {
     code: string;
     guild?: {

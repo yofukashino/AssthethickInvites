@@ -6,3 +6,7 @@ export const UserProfile = webpack.getBySource<Types.UserProfile>("default.PROFI
 export const { exports: GuildInvite } = webpack.getBySource(".getHeaderTextForInvite", {
   raw: true,
 });
+
+export const GuildConstructors = webpack.getByProps<Types.GuildConstructors>("fromInviteGuild");
+
+export const BoostUtils = webpack.getByProps<Types.BoostUtils>("getGuildTierFromAppliedBoostCount");

@@ -4,11 +4,7 @@ import consts from "../lib/consts";
 import Types from "../types";
 
 export default ({ Guild }: { Guild: Types.Guild }): React.ReactElement => {
-  if (
-    !SettingValues.get("nsfw", consts.defaultSettings.nsfw) ||
-    !Guild?.verificationLevel ||
-    Guild?.verificationLevel <= 0
-  )
+  if (!SettingValues.get("nsfw", consts.defaultSettings.nsfw) || !Guild?.verificationLevel)
     return null;
   return (
     <Tooltip text={`Level ${Guild?.verificationLevel} Verification`}>
