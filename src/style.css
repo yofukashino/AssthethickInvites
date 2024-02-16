@@ -41,9 +41,11 @@
 
 .assthethick-badgeContainer {
   display: flex;
-  flex-direction: column;
+  flex-flow: wrap;
   align-items: center;
   gap: 5px;
+  justify-content: center;
+  flex: 1000;
 }
 .assthethick-badgeContainerTop,
 .assthethick-badgeContainerBottom {
