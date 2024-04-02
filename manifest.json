@@ -1,5 +1,5 @@
 {
-  "id": "dev.YofukashiNo.AssthethickInvites",
+  "id": "dev.yofukashino.AssthethickInvites",
   "name": "AssthethickInvites",
   "description": "trying to make invites look better",
   "author": {
@@ -9,7 +9,7 @@
   },
   "version": "1.0.1",
   "updater": {
-    "id": "dev.YofukashiNo.AssthethickInvites",
+    "id": "dev.yofukashino.AssthethickInvites",
     "type": "store"
   },
   "license": "MIT",
