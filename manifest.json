@@ -9,14 +9,12 @@
   },
   "version": "1.0.1",
   "updater": {
-    "id": "YofukashiNo/AssthethickInvites",
-    "type": "github"
+    "id": "dev.YofukashiNo.AssthethickInvites",
+    "type": "store"
   },
   "license": "MIT",
   "type": "replugged-plugin",
   "renderer": "src/index.ts",
   "source": "https://github.com/YofukashiNo/AssthethickInvites",
-  "image": [
-    "https://i.imgur.com/Vk6VZzv.png"
-  ]
+  "image": ["https://i.imgur.com/Vk6VZzv.png"]
 }
