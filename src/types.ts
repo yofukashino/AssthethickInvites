@@ -7,7 +7,7 @@ export namespace Types {
   export type User = GeneralDiscordTypes.User & { displayName: string };
   export type UtilTree = util.Tree;
   export type UserProfile = React.MemoExoticComponent<
-    React.ComponentType<{ userId: string; channelId?: string; guildId?: string }>
+    React.ComponentType<{ user: User; channelId?: string; guildId?: string }>
   >;
   export interface BoostUtils {
     PerkIcons: DefaultTypes.AnyFunction;

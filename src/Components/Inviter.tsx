@@ -26,7 +26,7 @@ export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
   return (
     <DiscordComponents.Popout
       renderPopout={(props) =>
-        user ? <UserProfile {...props} userId={user?.id ?? Invite?.inviter?.id} /> : <></>
+        user ? <UserProfile {...props} user={user ?? Invite?.inviter} /> : <></>
       }
       position="right"
       animation={DiscordComponents.Popout.Animation.FADE}>
