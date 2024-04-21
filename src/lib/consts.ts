@@ -10,5 +10,3 @@ export const defaultSettings = {
   verification: true,
   customButton: true,
 };
-
-export default { defaultSettings };

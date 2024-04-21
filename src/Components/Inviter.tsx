@@ -1,11 +1,12 @@
 import { React, users as UltimateUserStore, components } from "replugged/common";
 import { Clickable, Tooltip } from "replugged/components";
 import { PluginLogger, SettingValues } from "../index";
-import { ProfileActions, UserProfile } from "../lib/requiredModules";
-import consts from "../lib/consts";
+import Modules from "../lib/requiredModules";
+import { defaultSettings } from "../lib/consts";
 import Types from "../types";
 
 export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
+  const { ProfileActions, UserProfile } = Modules;
   const DiscordComponents = components as typeof components & { Popout: Types.Popout };
   const [user, setUser] = React.useState(
     UltimateUserStore.getUser(Invite?.inviter?.id) as Types.User,
@@ -13,7 +14,7 @@ export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
   React.useEffect(() => {
     const fetchInviter = async () => {
       try {
-        await ProfileActions.getUser(Invite?.inviter?.id);
+        await ProfileActions?.getUser(Invite?.inviter?.id);
       } catch (error) {
         PluginLogger.error(error);
       }
@@ -21,12 +22,11 @@ export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
     };
     if (Invite?.inviter?.id) fetchInviter();
   }, [Invite?.inviter?.id]);
-  if (!SettingValues.get("inviter", consts.defaultSettings.inviter) || !Invite?.inviter)
-    return null;
+  if (!SettingValues.get("inviter", defaultSettings.inviter) || !Invite?.inviter) return null;
   return (
     <DiscordComponents.Popout
       renderPopout={(props) =>
-        user ? <UserProfile {...props} user={user ?? Invite?.inviter} /> : <></>
+        user && UserProfile ? <UserProfile {...props} user={user ?? Invite?.inviter} /> : <></>
       }
       position="right"
       animation={DiscordComponents.Popout.Animation.FADE}>

@@ -1,6 +1,6 @@
 import { Tooltip } from "replugged/components";
 import { SettingValues } from "../index";
-import consts from "../lib/consts";
+import { defaultSettings } from "../lib/consts";
 import Utils from "../lib/utils";
 import Types from "../types";
 
@@ -12,7 +12,7 @@ export default ({
   Invite: Types.Invite;
 }): React.ReactElement => {
   if (
-    !SettingValues.get("expiry", consts.defaultSettings.expiry) ||
+    !SettingValues.get("expiry", defaultSettings.expiry) ||
     !Object.prototype.hasOwnProperty.call(Invite, "expires_at")
   )
     return null;

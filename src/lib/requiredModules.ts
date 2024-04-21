@@ -1,14 +1,28 @@
 import { webpack } from "replugged";
 import Types from "../types";
 
-export const ProfileActions = webpack.getByProps<Types.ProfileActions>("getUser", "fetchProfile");
-export const UserProfile = webpack.getBySource<Types.UserProfile>(
-  "UserPopoutUpsellSource.USER_POPOUT",
-);
-export const { exports: GuildInvite } = webpack.getBySource(".getHeaderTextForInvite", {
-  raw: true,
-});
+export const Modules: Types.Modules = {};
 
-export const GuildConstructors = webpack.getByProps<Types.GuildConstructors>("fromInviteGuild");
+Modules.loadModules = async (): Promise<void> => {
+  Modules.ProfileActions ??= await webpack.waitForProps<Types.ProfileActions>(
+    "getUser",
+    "fetchProfile",
+  );
+  Modules.UserProfile = await webpack.waitForModule<Types.UserProfile>(
+    webpack.filters.bySource("UserPopoutUpsellSource.USER_POPOUT"),
+  );
+  Modules.GuildInvite = await webpack
+    .waitForModule<Types.GenericExport>(webpack.filters.bySource(".getHeaderTextForInvite"), {
+      raw: true,
+    })
+    .then(({ exports }) => exports);
 
-export const BoostUtils = webpack.getByProps<Types.BoostUtils>("getGuildTierFromAppliedBoostCount");
+  Modules.GuildConstructors ??=
+    await webpack.waitForProps<Types.GuildConstructors>("fromInviteGuild");
+
+  Modules.BoostUtils ??= await webpack.waitForProps<Types.BoostUtils>(
+    "getGuildTierFromAppliedBoostCount",
+  );
+};
+
+export default Modules;

@@ -1,17 +1,17 @@
 import { SettingValues } from "../index";
-import consts from "../lib/consts";
+import { defaultSettings } from "../lib/consts";
 import Types from "../types";
 
 export default ({ Guild }: { Guild: Types.Guild }): React.ReactElement => {
   if (
-    !SettingValues.get("showBanner", consts.defaultSettings.showBanner) ||
+    !SettingValues.get("showBanner", defaultSettings.showBanner) ||
     !Guild?.features.has("INVITE_SPLASH") ||
     !Guild?.banner
   )
     return null;
   return (
     <div
-      className={`${SettingValues.get("inviteBanner", consts.defaultSettings.inviteBanner) ? "assthethick-bannerSplash" : ""}`}>
+      className={`${SettingValues.get("inviteBanner", defaultSettings.inviteBanner) ? "assthethick-bannerSplash" : ""}`}>
       <img
         alt={`${Guild?.name} Banner`}
         className={`assthethick-banner${SettingValues.get("inviteBanner") ? " assthethick-bannerSplashImg" : ""}`}

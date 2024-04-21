@@ -6,6 +6,15 @@ export namespace Types {
   export type Guild = GeneralDiscordTypes.Guild;
   export type User = GeneralDiscordTypes.User & { displayName: string };
   export type UtilTree = util.Tree;
+  export type ReactTree = util.Tree & React.ReactElement;
+  export type GenericModule = Record<string, DefaultTypes.AnyFunction> & {
+    default: DefaultTypes.AnyFunction;
+  };
+  export interface GenericExport {
+    exports?: GenericModule;
+    id: string;
+    loaded: boolean;
+  }
   export type UserProfile = React.MemoExoticComponent<
     React.ComponentType<{ user: User; channelId?: string; guildId?: string }>
   >;
@@ -112,7 +121,14 @@ export namespace Types {
       spacing: number;
     };
   }
-  export type ReactTree = util.Tree & React.ReactElement;
+  export interface Modules {
+    loadModules?: () => Promise<void>;
+    ProfileActions?: ProfileActions;
+    UserProfile?: UserProfile;
+    GuildInvite?: GenericModule;
+    GuildConstructors?: GuildConstructors;
+    BoostUtils?: BoostUtils;
+  }
   export interface Settings {
     showBanner: boolean;
     inviteBanner: boolean;

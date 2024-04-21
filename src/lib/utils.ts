@@ -1,5 +1,5 @@
 import { i18n, util } from "replugged";
-import { BoostUtils, GuildConstructors } from "./requiredModules";
+import Modules from "./requiredModules";
 import Types from "../types";
 export const dateToHumanReadable = (date: string): string => {
   const RealDate = new Date(date);
@@ -7,11 +7,11 @@ export const dateToHumanReadable = (date: string): string => {
 };
 
 export const mapGuildData = (rawGuild): Types.Guild => {
-  const Guild = GuildConstructors.fromInviteGuild(rawGuild) as Types.Guild;
-  Guild.premiumTier = BoostUtils.getGuildTierFromAppliedBoostCount(
+  const Guild = Modules.GuildConstructors?.fromInviteGuild(rawGuild) as Types.Guild;
+  Guild.premiumTier = (Modules.BoostUtils?.getGuildTierFromAppliedBoostCount(
     Guild.premiumSubscriberCount,
     Guild.id,
-  ) as number;
+  ) ?? 0) as number;
   return Guild;
 };
 

@@ -1,11 +1,10 @@
 import { Tooltip } from "replugged/components";
 import { SettingValues } from "../index";
-import consts from "../lib/consts";
+import { defaultSettings } from "../lib/consts";
 import Types from "../types";
 
 export default ({ Guild }: { Guild: Types.Guild }): React.ReactElement => {
-  if (!SettingValues.get("nsfw", consts.defaultSettings.nsfw) || !Guild?.verificationLevel)
-    return null;
+  if (!SettingValues.get("nsfw", defaultSettings.nsfw) || !Guild?.verificationLevel) return null;
   return (
     <Tooltip text={`Level ${Guild?.verificationLevel} Verification`}>
       <img

@@ -1,10 +1,10 @@
 import { Tooltip } from "replugged/components";
 import { SettingValues } from "../index";
-import consts from "../lib/consts";
+import { defaultSettings } from "../lib/consts";
 import Types from "../types";
 
 export default ({ Guild }: { Guild: Types.Guild }): React.ReactElement => {
-  if (!SettingValues.get("boost", consts.defaultSettings.boost) || !Guild?.premiumTier) return null;
+  if (!SettingValues.get("boost", defaultSettings.boost) || !Guild?.premiumTier) return null;
   return (
     <Tooltip text={`Level ${Guild?.premiumTier} Boosted`}>
       <img
