@@ -1,6 +1,6 @@
 {
   "name": "assthethick-invites",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "trying to make invites look better",
   "engines": {
     "node": ">=20.0.0",
