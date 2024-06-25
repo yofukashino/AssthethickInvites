@@ -7,7 +7,7 @@ import Types from "../types";
 
 export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
   const { ProfileActions, UserProfile } = Modules;
-  const DiscordComponents = components as typeof components & { Popout: Types.Popout };
+  const { Popout } = components as typeof components & { Popout: Types.Popout };
   const [user, setUser] = React.useState(
     UltimateUserStore.getUser(Invite?.inviter?.id) as Types.User,
   );
@@ -24,12 +24,12 @@ export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
   }, [Invite?.inviter?.id]);
   if (!SettingValues.get("inviter", defaultSettings.inviter) || !Invite?.inviter) return null;
   return (
-    <DiscordComponents.Popout
+    <Popout
       renderPopout={(props) =>
         user && UserProfile ? <UserProfile {...props} user={user ?? Invite?.inviter} /> : <></>
       }
       position="right"
-      animation={DiscordComponents.Popout.Animation.FADE}>
+      animation={Popout.Animation.FADE}>
       {({ onClick }: { onClick: Types.DefaultTypes.AnyFunction }) => {
         return (
           <Tooltip text={`Inviter: ${user?.displayName ?? Invite?.inviter?.global_name}`}>
@@ -42,6 +42,6 @@ export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
           </Tooltip>
         );
       }}
-    </DiscordComponents.Popout>
+    </Popout>
   );
 };

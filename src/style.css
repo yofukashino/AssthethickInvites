@@ -31,7 +31,8 @@
 }
 
 .assthethick-description {
-  margin-top: 1%;
+  margin: auto;
+  text-align: center;
 }
 
 .assthethick-join {
@@ -56,4 +57,17 @@
 .assthethick-customButton {
   width: 100%;
   margin: 3% 0% 0% 0%;
+}
+
+div:has(> div > .assthethick-HeaderFlex) {
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.assthethick-HeaderFlex [class*="guildInfo_"] {
+  max-width: 250px;
+}
+
+div:has(> .assthethick-HeaderFlex) {
+  flex-flow: column;
 }

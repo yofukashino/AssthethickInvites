@@ -19,40 +19,32 @@ export namespace Types {
     React.ComponentType<{ user: User; channelId?: string; guildId?: string }>
   >;
   export interface BoostUtils {
-    PerkIcons: DefaultTypes.AnyFunction;
-    appliedGuildBoostsRequiredForPerks: DefaultTypes.AnyFunction;
-    boostedGuildTierToAnalyticsObjectType: DefaultTypes.AnyFunction;
-    generateBlockGuildSubscriptionPurchasesNode: DefaultTypes.AnyFunction;
-    getAppliedGuildBoostsRequired: DefaultTypes.AnyFunction;
-    getAvailableGuildBoostSlots: DefaultTypes.AnyFunction;
-    getAvailableSoundboardSoundCount: DefaultTypes.AnyFunction;
-    getAvailableStickerSlotCount: DefaultTypes.AnyFunction;
-    getGracePeriodEndingDate: DefaultTypes.AnyFunction;
-    getGuildTierFromAppliedBoostCount: DefaultTypes.AnyFunction;
-    getIncrementalSoundboardSoundCountForTier: DefaultTypes.AnyFunction;
-    getIncrementalStickerCountForTier: DefaultTypes.AnyFunction;
-    getNextTier: DefaultTypes.AnyFunction;
-    getNumberOfAppliedBoostsNeededForTier: DefaultTypes.AnyFunction;
-    getShortenedTierName: DefaultTypes.AnyFunction;
-    getTierName: DefaultTypes.AnyFunction;
-    getTiers: DefaultTypes.AnyFunction;
-    getTotalSoundboardSoundCountForTier: DefaultTypes.AnyFunction;
-    getTotalStickerCountForTier: DefaultTypes.AnyFunction;
-    isGuildBoostSlotCanceled: DefaultTypes.AnyFunction;
-    isGuildBoostedAtLeast: DefaultTypes.AnyFunction;
-    isInGracePeriod: DefaultTypes.AnyFunction;
-    isTierUnlocked: DefaultTypes.AnyFunction;
-    minimumRequiredTierForGuildFeature: DefaultTypes.AnyFunction;
+    PerkIcons?: DefaultTypes.AnyFunction;
+    appliedGuildBoostsRequiredForPerks?: DefaultTypes.AnyFunction;
+    boostedGuildTierToAnalyticsObjectType?: DefaultTypes.AnyFunction;
+    generateBlockGuildSubscriptionPurchasesNode?: DefaultTypes.AnyFunction;
+    getAppliedGuildBoostsRequired?: DefaultTypes.AnyFunction;
+    getAvailableGuildBoostSlots?: DefaultTypes.AnyFunction;
+    getAvailableSoundboardSoundCount?: DefaultTypes.AnyFunction;
+    getAvailableStickerSlotCount?: DefaultTypes.AnyFunction;
+    getGracePeriodEndingDate?: DefaultTypes.AnyFunction;
+    getGuildTierFromAppliedBoostCount?: DefaultTypes.AnyFunction;
+    getIncrementalSoundboardSoundCountForTier?: DefaultTypes.AnyFunction;
+    getIncrementalStickerCountForTier?: DefaultTypes.AnyFunction;
+    getNextTier?: DefaultTypes.AnyFunction;
+    getNumberOfAppliedBoostsNeededForTier?: DefaultTypes.AnyFunction;
+    getShortenedTierName?: DefaultTypes.AnyFunction;
+    getTierName?: DefaultTypes.AnyFunction;
+    getTiers?: DefaultTypes.AnyFunction;
+    getTotalSoundboardSoundCountForTier?: DefaultTypes.AnyFunction;
+    getTotalStickerCountForTier?: DefaultTypes.AnyFunction;
+    isGuildBoostSlotCanceled?: DefaultTypes.AnyFunction;
+    isGuildBoostedAtLeast?: DefaultTypes.AnyFunction;
+    isInGracePeriod?: DefaultTypes.AnyFunction;
+    isTierUnlocked?: DefaultTypes.AnyFunction;
+    minimumRequiredTierForGuildFeature?: DefaultTypes.AnyFunction;
   }
-  export interface GuildConstructors {
-    filterRoleDeletes: DefaultTypes.AnyFunction;
-    fromBackgroundSync: DefaultTypes.AnyFunction;
-    fromInviteGuild: DefaultTypes.AnyFunction;
-    fromSerializedGuildRecord: DefaultTypes.AnyFunction;
-    fromServer: DefaultTypes.AnyFunction;
-    fromServerUpdate: DefaultTypes.AnyFunction;
-    toServer: DefaultTypes.AnyFunction;
-  }
+
   export interface Invite {
     code: string;
     guild?: {
@@ -88,7 +80,6 @@ export namespace Types {
   export interface ProfileActions {
     acceptAgreements: DefaultTypes.AnyFunction;
     fetchCurrentUser: DefaultTypes.AnyFunction;
-    fetchMutualFriends: DefaultTypes.AnyFunction;
     fetchProfile: DefaultTypes.AnyFunction;
     getUser: DefaultTypes.AnyFunction;
     setFlag: DefaultTypes.AnyFunction;
@@ -123,10 +114,12 @@ export namespace Types {
   }
   export interface Modules {
     loadModules?: () => Promise<void>;
+    ProfileActionsModule?: GenericModule;
     ProfileActions?: ProfileActions;
     UserProfile?: UserProfile;
     GuildInvite?: GenericModule;
-    GuildConstructors?: GuildConstructors;
+    GuildConstructors?: GenericModule;
+    BoostUtilsModule?: GenericModule;
     BoostUtils?: BoostUtils;
   }
   export interface Settings {
