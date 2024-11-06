@@ -4,7 +4,10 @@ import "./style.css";
 export const PluginInjector = new Injector();
 export const { utils: PluginInjectorUtils } = PluginInjector;
 export const PluginLogger = Logger.plugin("AssthethickInvites", "#b380ff");
-export const SettingValues = await settings.init("dev.tharki.AssthethickInvites", defaultSettings);
+export const SettingValues = await settings.init(
+  "dev.yofukashino.AssthethickInvites",
+  defaultSettings,
+);
 import Settings from "./Components/Settings";
 import Injections from "./injections";
 

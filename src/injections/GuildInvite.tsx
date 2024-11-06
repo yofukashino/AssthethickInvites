@@ -12,7 +12,7 @@ import { Flex } from "replugged/components";
 
 export default (): void => {
   const { GuildInvite } = Modules;
-  const loader = webpack.getFunctionKeyBySource(GuildInvite, "Messages.INVITE_VOICE_CHANNEL_JOIN");
+  const loader = webpack.getFunctionKeyBySource(GuildInvite, "GuildSplash");
   PluginInjector.after(
     GuildInvite,
     loader,

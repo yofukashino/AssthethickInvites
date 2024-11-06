@@ -26,7 +26,15 @@ export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
   return (
     <Popout
       renderPopout={(props) =>
-        user && UserProfile ? <UserProfile {...props} user={user ?? Invite?.inviter} /> : <></>
+        user && UserProfile ? (
+          <UserProfile
+            {...props}
+            currentUser={UltimateUserStore.getCurrentUser()}
+            user={user ?? Invite?.inviter}
+          />
+        ) : (
+          <></>
+        )
       }
       position="right"
       animation={Popout.Animation.FADE}>

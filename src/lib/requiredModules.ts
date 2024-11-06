@@ -6,7 +6,7 @@ export const Modules: Types.Modules = {};
 Modules.loadModules = async (): Promise<void> => {
   Modules.ProfileActionsModule ??= await webpack
     .waitForModule<Types.GenericModule>(
-      webpack.filters.bySource("UserProfileModalActionCreators"),
+      webpack.filters.bySource("setFlag: user cannot be undefined"),
       {
         timeout: 10000,
       },
@@ -44,13 +44,10 @@ Modules.loadModules = async (): Promise<void> => {
     });
 
   Modules.GuildInvite = await webpack
-    .waitForModule<Types.GenericExport>(
-      webpack.filters.bySource("Messages.INVITE_VOICE_CHANNEL_JOIN"),
-      {
-        raw: true,
-        timeout: 10000,
-      },
-    )
+    .waitForModule<Types.GenericExport>(webpack.filters.bySource(".GuildSplash,"), {
+      raw: true,
+      timeout: 10000,
+    })
     .then(({ exports }) => exports)
     .catch(() => {
       throw new Error("Failed To Find GuildInvite Module");
@@ -66,7 +63,7 @@ Modules.loadModules = async (): Promise<void> => {
 
   Modules.BoostUtilsModule ??= await webpack
     .waitForModule<Types.GenericModule>(
-      webpack.filters.bySource(".Messages.PREMIUM_GUILD_TIER_0"),
+      webpack.filters.bySource(".numAvailableGuildBoostSlots++"),
       {
         timeout: 10000,
       },
@@ -80,15 +77,9 @@ Modules.loadModules = async (): Promise<void> => {
       Modules.BoostUtilsModule,
       /return .\.\w+\.NONE}/,
     ),
-    getShortenedTierName: webpack.getFunctionBySource(
-      Modules.BoostUtilsModule,
-      ".PREMIUM_GUILD_TIER_1_SHORT;",
-    ),
-    getTierName: webpack.getFunctionBySource(Modules.BoostUtilsModule, ".PREMIUM_GUILD_TIER_0"),
-    getTiers: webpack.getFunctionBySource(
-      Modules.BoostUtilsModule,
-      ".Messages.GUILD_SETTINGS_GUILD_PREMIUM_PERKS_TITLE_TIER_1,",
-    ),
+    getShortenedTierName: webpack.getFunctionBySource(Modules.BoostUtilsModule, "{switch"),
+    getTierName: webpack.getFunctionBySource(Modules.BoostUtilsModule, "{useLevels:"),
+    getTiers: webpack.getFunctionBySource(Modules.BoostUtilsModule, "adding:"),
   };
 };
 
