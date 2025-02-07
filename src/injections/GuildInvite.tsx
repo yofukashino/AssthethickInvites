@@ -8,7 +8,7 @@ import { defaultSettings } from "../lib/consts";
 import Banner from "../Components/Banner";
 import Description from "../Components/Description";
 import { webpack } from "replugged";
-import { Flex } from "replugged/components";
+import { ErrorBoundary, Flex } from "replugged/components";
 
 export default (): void => {
   const { GuildInvite } = Modules;
@@ -52,7 +52,7 @@ export default (): void => {
         0,
         <Banner Guild={guild} />,
       );
-      return res;
+      return <ErrorBoundary>{res}</ErrorBoundary>;
     },
   );
 };

@@ -1,3 +1,4 @@
+import { webpack } from "replugged";
 import { React, users as UltimateUserStore, components } from "replugged/common";
 import { Clickable, Tooltip } from "replugged/components";
 import { PluginLogger, SettingValues } from "../index";
@@ -7,7 +8,10 @@ import Types from "../types";
 
 export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
   const { ProfileActions, UserProfile } = Modules;
-  const { Popout } = components as typeof components & { Popout: Types.Popout };
+  const Popout = webpack.getFunctionBySource<Types.Popout>(
+    components,
+    "Unsupported animation config:",
+  );
   const [user, setUser] = React.useState(
     UltimateUserStore.getUser(Invite?.inviter?.id) as Types.User,
   );
