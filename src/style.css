@@ -69,5 +69,11 @@ div:has(> div > .assthethick-HeaderFlex) {
 }
 
 div:has(> .assthethick-HeaderFlex) {
+  align-self: baseline;
+  width: 100%;
   flex-flow: column;
+}
+
+.assthethick-HeaderFlex {
+  width: 100%;
 }
