@@ -51,26 +51,6 @@ Modules.loadModules = async (): Promise<void> => {
     .catch(() => {
       throw new Error("Failed To Find GuildConstructors Module");
     });
-
-  Modules.BoostUtils ??= await webpack
-    .waitForModule<Types.DefaultTypes.RawModule>(
-      webpack.filters.bySource(".numAvailableGuildBoostSlots++"),
-      {
-        timeout: 10000,
-        raw: true,
-      },
-    )
-    .then((v) =>
-      Utils.unmangleExports<Types.BoostUtils>(v, {
-        getGuildTierFromAppliedBoostCount: /return .\.\w+\.NONE}/,
-        getShortenedTierName: "{switch",
-        getTierName: "{useLevels:",
-        getTiers: "adding:",
-      }),
-    )
-    .catch(() => {
-      throw new Error("Failed To Find BoostUtils Module");
-    });
 };
 
 export default Modules;

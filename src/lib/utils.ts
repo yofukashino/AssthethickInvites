@@ -24,12 +24,9 @@ export const mapGuildData = (rawGuild): Types.Guild => {
     premiumSubscriberCount: rawGuild.premium_subscription_count,
     nsfwLevel: rawGuild.nsfw_level,
     memberCount: rawGuild.approximate_member_count,
+    premiumTier: rawGuild.premium_tier,
   }) as Types.Guild;
 
-  Guild.premiumTier = (Modules.BoostUtils?.getGuildTierFromAppliedBoostCount(
-    Guild.premiumSubscriberCount,
-    Guild.id,
-  ) ?? 0) as number;
   return Guild;
 };
 
