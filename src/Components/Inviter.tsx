@@ -45,7 +45,8 @@ export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
       {({ onClick }: { onClick: Types.DefaultTypes.AnyFunction }) => {
         return (
           <span>
-            <Tooltip text={`Inviter: ${user?.displayName ?? Invite?.inviter?.global_name}`}>
+            <Tooltip
+              text={`Inviter: ${user?.displayName ?? Invite?.inviter?.global_name ?? user?.username ?? Invite?.inviter?.username}`}>
               <Clickable onClick={onClick}>
                 <img
                   className="assthethick-badge assthethick-inviter"
