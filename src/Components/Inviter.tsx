@@ -44,14 +44,16 @@ export default ({ Invite }: { Invite: Types.Invite }): React.ReactElement => {
       animation={Popout.Animation.FADE}>
       {({ onClick }: { onClick: Types.DefaultTypes.AnyFunction }) => {
         return (
-          <Tooltip text={`Inviter: ${user?.displayName ?? Invite?.inviter?.global_name}`}>
-            <Clickable onClick={onClick}>
-              <img
-                className="assthethick-badge assthethick-inviter"
-                src={user ? user?.getAvatarURL() : "/assets/5d6a5e9d7d77ac29116e.png"}
-              />
-            </Clickable>
-          </Tooltip>
+          <span>
+            <Tooltip text={`Inviter: ${user?.displayName ?? Invite?.inviter?.global_name}`}>
+              <Clickable onClick={onClick}>
+                <img
+                  className="assthethick-badge assthethick-inviter"
+                  src={user ? user?.getAvatarURL() : "/assets/5d6a5e9d7d77ac29116e.png"}
+                />
+              </Clickable>
+            </Tooltip>
+          </span>
         );
       }}
     </Popout>
